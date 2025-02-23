@@ -1,11 +1,21 @@
-/* Fullscreen map and reset margins */
+/* Reset body and HTML margin/padding for a full-page experience */
 body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    height: 100%; /* Full height for the page */
+    font-family: Arial, sans-serif; /* Clean, readable font */
 }
 
+/* Map container: 
+   - Must have height set (otherwise, Leaflet map won't appear) */
 #map {
-    height: 100vh;
-    width: 100%;
+    height: 90vh; /* 90% of the viewport height */
+    width: 100%;  /* Full width of the page */
+    border: 2px solid #333; /* Optional: Adds a border around the map */
+}
+
+/* Heading styling: Centered heading above the map */
+h1 {
+    text-align: center; /* Center the heading text */
+    margin: 10px 0;     /* Margin for spacing */
 }
