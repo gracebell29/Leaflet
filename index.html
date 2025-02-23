@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map with Test Points</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body, html { height: 100%; margin: 0; padding: 0; }
+        #map { height: 100vh; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div> <!-- Map container -->
+
+    <script>
+        // Initialize the map and set the view
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Sample test points with coordinates
+        var testPoints = [
+            { name: "Test Point 1", coords: [51.505, -0.09] },
+            { name: "Test Point 2", coords: [51.51, -0.1] },
+            { name: "Test Point 3", coords: [51.507, -0.08] },
+            { name: "Test Point 4", coords: [51.503, -0.06] },
+            { name: "Test Point 5", coords: [51.508, -0.11] }
+        ];
+
+        // Add markers for each test point with a popup
+        testPoints.forEach(function(point, index) {
+            L.marker(point.coords)
+                .addTo(map)
+                .bindPopup(`<b>${point.name}</b><br>Number: ${index + 1}`);
+        });
+    </script>
+</body>
+</html>
